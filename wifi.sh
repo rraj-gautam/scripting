@@ -1,6 +1,6 @@
 #!/bin/sh
 #list networks
-#run with a [. ./filename.sh] 
+#**************run with a [. ./filename.sh]********** 
 #inorder to make the variables included within same bash
 #ie.In order to receive environment changes back from the script
 #  
