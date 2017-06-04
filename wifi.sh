@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #list networks
 #**************run with a [. ./filename.sh]********** 
 #inorder to make the variables included within same bash
