@@ -1,4 +1,7 @@
-#/bin/bash
+#used to increase or decrease master volume by the precentage we want.
+#also graphical view of status of all sound levels
+
+#!/bin/bash
 
 echo "Increase or Decrease? I/D" 
 read keyboard
