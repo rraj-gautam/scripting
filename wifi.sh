@@ -42,9 +42,16 @@ nmcli d wifi connect $ssidname password $ssidpassword
 echo "checking network connection...................................................."
 espeak "checking network connection"
 if (ping -c 3 8.8.8.8) then
-	echo "connected successfully"
-	espeak "connected successfully"
-esle
+	echo "connected successfully" $ssidname
+	espeak "connected successfully" $ssidname
+
+else
 	echo "connection failed. please try with correct information"
 	espeak "connection failed. please try with correct information"
+
+
+	echo "trying for saved connection......"
+	nmcli d connect wlp9s0 
 fi
+
+
