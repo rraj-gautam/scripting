@@ -51,7 +51,7 @@ else
 
 
 	echo "trying for saved connection......"
-	nmcli d connect wlp9s0 
+	nmcli d connect wlp9s0     #written only to connect to saved network. change the wlp9s0 with your interface name
 fi
 
 
