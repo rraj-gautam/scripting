@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #list networks
 #run with a [. ./filename.sh] 
 #inorder to make the variables included within same bash
@@ -51,7 +51,7 @@ else
 
 
 	echo "trying for saved connection......"
-	nmcli d connect wlp9s0 
+	nmcli d connect wlp9s0 #written only to connect to saved connection (if disconnected) . change wlp9s0 by your interface name.
 fi
 
 
