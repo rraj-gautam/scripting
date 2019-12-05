@@ -1,4 +1,7 @@
 # scripting
 useful script files
-voume-control using terminal
-wifi-manager using terminal
+voume-control 
+wifi-manager 
+firewall rules
+backups
+hardening & audits
