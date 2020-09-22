@@ -1,6 +1,6 @@
 #!/bin/bash
 
-##this script restarts all lambda functions of your aws acccount.
+##this script restarts all lambda functions of your aws acccount, by adding RESTART environment variables, without deleting existing variables.
 
 echo "You have enabled \"$AWS_PROFILE\" PROFILE. Is this the correct one where you want to run the script? [y/n]: "
 read ans
@@ -21,6 +21,8 @@ aws lambda list-functions  --region eu-central-1 --query 'Functions[*].[Function
 #funcNames=("test-app" "test-comments")
 #for x in "${funcNames[@]}";
 do
+
+##updating environment varaibles without deleting existing variables.
 echo updating environment vairiable on $x...;
 CURRENTVARIABLES=$(aws lambda get-function-configuration --region eu-central-1 --function-name $x | jq '.Environment.Variables')
 NEWVARIABLES=$(echo $CURRENTVARIABLES | jq '. += {"RESTART":"Restart_by_'$email'_on_'$tada'"}')
