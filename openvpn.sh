@@ -26,7 +26,7 @@ sysctl -p
 
 docker volume create --name ymy_openvpn  #for saving configs
 #create config files
-docker run -v ymy_openvpn:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_genconfig -u udp://${openVpnServer_public_ip} -d -p "route ${route_1_cidr}" -p "route ${route_2_cidr}"
+docker run -v ymy_openvpn:/etc/openvpn --log-driver=none --rm kylemanna/openvpn ovpn_genconfig -u udp://${openVpnServer_public_ip} -d -p "route ${route_1_cidr(nettwork _space_ netmask}" -p "route ${route_2_cidr}"
 #create certificates
 docker run -v ymy_openvpn:/etc/openvpn --log-driver=none --rm -e "EASYRSA_BATCH=1" -e "EASYRSA_REQ_CN=Ymy CA" kylemanna/openvpn ovpn_initpki nopass
 #Start OpenVPN server process
