@@ -27,8 +27,8 @@ TOKEN=$(echo -n "<BASE64_ENCODED_BEARER_TOKEN>"|base64 -d)
 echo "<BASE64_CA_CRT>" | base64 -d >/tmp/ca.crt
 
 # This fetches secret from k8s server, decodes it and stores in /tmp folder.
-curl -k -s -X GET https://<API_SERVER_IP>:8443/api/v1/namespaces/certificates/secrets/${SSL_SECRET_NAME} --header "Authorization: Bearer $TOKEN" --cacert /tmp/ca.crt | jq '.data."tls.crt"' | tr -d '"' |base64 -d > /tmp/tls.crt
-curl -k -s -X GET https://<API_SERVER_IP>:8443/api/v1/namespaces/certificates/secrets/${SSL_SECRET_NAME} --header "Authorization: Bearer $TOKEN" --cacert /tmp/ca.crt | jq '.data."tls.key"' | tr -d '"' |base64 -d > /tmp/tls.key
+curl -k -s -X GET https://<API_SERVER_IP/DOMAIN>:<API_SERVER_PORT>/api/v1/namespaces/certificates/secrets/${SSL_SECRET_NAME} --header "Authorization: Bearer $TOKEN" --cacert /tmp/ca.crt | jq '.data."tls.crt"' | tr -d '"' |base64 -d > /tmp/tls.crt
+curl -k -s -X GET https://<API_SERVER_IP/DOMAIN>:<API_SERVER_PORT>/api/v1/namespaces/certificates/secrets/${SSL_SECRET_NAME} --header "Authorization: Bearer $TOKEN" --cacert /tmp/ca.crt | jq '.data."tls.key"' | tr -d '"' |base64 -d > /tmp/tls.key
 
 if [ $? -eq 0 ]; then
 	echo "---------------------------------------------------"
